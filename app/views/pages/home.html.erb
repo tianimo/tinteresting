@@ -1,9 +1,10 @@
-<div class="jumbotron">
-
-	<h1>Home page of the app</h1>
+<div class="jumbotron center">
+	<div class="page-header">
+		<h1>Be <em>Tinteresting</em>.</h1>
+	</div>
 	<p>
-		To get started, just <%= link_to "push here", "http://www.bbc.co.uk/weather", class: "btn btn-primary btn-lg" %> you mo'fo.
+		<%= link_to "Log in", "http://www.bbc.co.uk/sport", class: "btn btn-default btn-lg" %>
+		<%= link_to "Sign up", "http://www.bbc.co.uk/weather", class: "btn btn-primary btn-lg" %>
 	</p>
-	<p>OR, you can <%= link_to "try this instead", "http://www.bbc.co.uk/news"%>. </p>
-
+	<p><small>If you're Tinterested, you can <%= link_to "take a peeksie here", about_path %>. </small></p>
 </div>

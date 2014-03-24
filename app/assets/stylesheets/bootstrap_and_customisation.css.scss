@@ -1,7 +1,22 @@
-$body-bg:								#2c3e50;
-$navbar-default-bg:			#c0392b;
-$navbar-default-link-color:	#ffffff;
-$brand-primary:					#f39c12;
+$body-bg:													#2c3e50;
+$navbar-default-bg:								#c0392b;
+$navbar-default-link-color:				#ffffff;
+$navbar-default-brand-color:			#ffffff;
+$brand-primary:										#f39c12;
+
+$font-family-sans-serif:					Voltaire, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 
 @import 'bootstrap';
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Kite+One|Voltaire);
+
+
+body { padding-top: 70px; }
+
+.center {
+	text-align:		center;
+}
+
+.navbar-brand {
+	font-weight: bold;
+}
