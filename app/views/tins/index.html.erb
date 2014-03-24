@@ -2,8 +2,10 @@
 
   <div class="panel-heading">
     <h1>Listing tins</h1>
+    <% if user_signed_in? %>
+      <%= link_to 'New Tin', new_tin_path, class: "btn btn-info", style: "float" %>
+    <% end %>
   </div>
-
   <table class="table">
     <thead>
       <tr>
@@ -17,20 +19,20 @@
     <tbody>
       <% @tins.each do |tin| %>
         <tr>
-          <td><%= tin.description %></td>
+          <td colspan="2"><%= tin.description %></td>
+          <td><%= tin.user.email unless tin.user.nil? %></td>
+
             <tr>
               <td><%= link_to 'Show', tin %></td>
-              <td><%= link_to 'Edit', edit_tin_path(tin) %></td>
-              <td><%= link_to 'Destroy', tin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% if tin.user == current_user %>
+                <td><%= link_to 'Edit', edit_tin_path(tin) %></td>
+                <td><%= link_to 'Destroy', tin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
           </tr>
         </tr>
       <% end %>
     </tbody>
   </table>
-
-  <div class="panel-footer">
-    <%= link_to 'New Tin', new_tin_path %>
-  </div>
 
 </div>
 

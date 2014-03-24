@@ -1,9 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-primary">
 
-<p>
-  <strong>Description:</strong>
-  <%= @tin.description %>
-</p>
+	<p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_tin_path(@tin) %> |
-<%= link_to 'Back', tins_path %>
+	  <div class="panel-heading">
+	  	<h2 class="panel-title">Description</h2>
+	  </div>
+	  <div class="panel-body"><%= @tin.description %> </div>
+
+		<div class="panel-footer">
+	  	<%if @tin.user == current_user %>
+				<%= link_to 'Edit', edit_tin_path(@tin) %> |
+			<% end %>
+			<%= link_to 'Back', tins_path %>
+		</div>
+
+</div>
