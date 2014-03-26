@@ -12,6 +12,10 @@ $font-family-sans-serif:					Voltaire, "Helvetica Neue", Helvetica, Arial, sans-
 
 
 body { padding-top: 70px; }
+/*
+.navbar-default, .navbar-fixed-top {
+	background-color: transparent;
+}*/
 
 .center {
 	text-align:		center;
@@ -19,4 +23,29 @@ body { padding-top: 70px; }
 
 .navbar-brand {
 	font-weight: bold;
+}
+
+.hometext {
+	color: #ffffff;
+}
+
+/*
+#bs-example-navbar-collapse-1 {
+	background-color: $navbar-default-bg;
+	opacity: 0.9;
+}*/
+
+#jumbo_home {
+	background-color: transparent;
+}
+
+#homejo {
+background-image: url('grapes1.jpg');
+background-repeat: no-repeat;
+background-size: 100%;
+background-color: #cccccc;
+}
+
+#homelink {
+	color: #ffffff;
 }

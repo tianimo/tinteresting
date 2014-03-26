@@ -9,7 +9,9 @@
   <table class="table">
     <thead>
       <tr>
+        <th>Image</th>
         <th>Description</th>
+        <th>User</th>
         <th></th>
         <th></th>
         <th></th>
@@ -19,16 +21,17 @@
     <tbody>
       <% @tins.each do |tin| %>
         <tr>
-          <td colspan="2"><%= tin.description %></td>
+          <td><%= image_tag tin.image.url(:thumb) %></td>
+          <td><%= tin.description %></td>
           <td><%= tin.user.email unless tin.user.nil? %></td>
-
-            <tr>
-              <td><%= link_to 'Show', tin %></td>
-              <% if tin.user == current_user %>
-                <td><%= link_to 'Edit', edit_tin_path(tin) %></td>
-                <td><%= link_to 'Destroy', tin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <% end %>
-          </tr>
+          <td><%= link_to 'Show', tin %></td>
+          <% if tin.user == current_user %>
+            <td><%= link_to 'Edit', edit_tin_path(tin) %></td>
+            <td><%= link_to 'Destroy', tin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% else %>
+            <td></td>
+            <td></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

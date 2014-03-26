@@ -1,15 +1,17 @@
-<div class="jumbotron center">
-	<div class="page-header">
-		<h1>Be <em>Tinteresting</em>.</h1>
-	</div>
-		<% if user_signed_in? %>
-			<%  %>
-		<% else %>
-			<p>
-				<%= link_to "Log in", new_user_session_path, class: "btn btn-default btn-lg" %>
-				<%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
-			</p>
-			<p><small>If you're Tintercurious, you can <%= link_to "take a peeksie here", tins_path %>. </small></p>
-		<% end %>
+<body id="homejo">
+	<div class="jumbotron center" id="jumbo_home">
+		<div class="page-header">
+			<h1><span class="hometext">Be <em>Tinteresting</em>.</span></h1>
+		</div>
+			<% if user_signed_in? %>
+				<%  %>
+			<% else %>
+				<p>
+					<%= link_to "Log in", new_user_session_path, class: "btn btn-default btn-lg" %>
+					<%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+				</p>
+				<p><small><span class="hometext">If you're Tintercurious, you can <%= link_to "take a peeksie here", tins_path%>. </span> </small></p>
+			<% end %>
 
-</div>
+	</div>
+</body>

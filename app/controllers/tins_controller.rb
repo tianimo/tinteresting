@@ -67,6 +67,6 @@ class TinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tin_params
-      params.require(:tin).permit(:description)
+      params.require(:tin).permit(:description, :image)
     end
 end
