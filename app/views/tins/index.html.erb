@@ -1,43 +1,16 @@
-<div class="panel panel-default">
-
-  <div class="panel-heading">
-    <h1>Listing tins</h1>
-    <% if user_signed_in? %>
-      <%= link_to 'New Tin', new_tin_path, class: "btn btn-info", style: "float" %>
-    <% end %>
-  </div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Image</th>
-        <th>Description</th>
-        <th>User</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @tins.each do |tin| %>
-        <tr>
-          <td><%= image_tag tin.image.url(:thumb) %></td>
-          <td><%= tin.description %></td>
-          <td><%= tin.user.email unless tin.user.nil? %></td>
-          <td><%= link_to 'Show', tin %></td>
-          <% if tin.user == current_user %>
-            <td><%= link_to 'Edit', edit_tin_path(tin) %></td>
-            <td><%= link_to 'Destroy', tin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% else %>
-            <td></td>
-            <td></td>
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
+<div id = "tins" class="transitions-enabled">
+  <% @tins.each do |tin| %>
+    <div class="box panel panel-default">
+      <%= image_tag tin.image.url(:thumb) %>
+      <div class="panel-body">
+        <%= tin.description %>
+        <%= tin.user.email unless tin.user.nil? %>
+        <%= link_to 'Show', tin %>
+        <% if tin.user == current_user %>
+          <td><%= link_to 'Edit', edit_tin_path(tin) %>
+          <td><%= link_to 'Destroy', tin, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
-
-
-
