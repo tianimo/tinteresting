@@ -18,7 +18,12 @@
         <li><%= link_to "Home", root_path%></li>
         <li><%= link_to "About", about_path%></li>
         <% if user_signed_in? %>
-          <li><%= link_to "New tin", new_tin_path %></li>
+          <li>
+            <!--<span class="glyphicon glyphicon-plus-sign"></span>-->
+            <%= link_to new_tin_path do %>
+              <span class="glyphicon glyphicon-plus-sign"></span>  New tin
+            <% end %>
+          </li>
           <li><%= link_to "Cool stuff", tins_path %></li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% else %>

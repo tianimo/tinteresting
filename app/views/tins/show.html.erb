@@ -1,20 +1,34 @@
-<div class="panel panel-primary">
+<%= link_to 'Back', tins_path %>
 
-	<p id="notice"><%= notice %></p>
+<div class = "row">
+	<div class="panel panel-primary center col-md-offset-2 col-md-8">
+	<!-- <div class="panel panel-primary center">-->
 
-	  <div class="panel-heading">
-	  	<h2 class="panel-title">Description</h2>
-	  </div>
-	  <div class="panel-body">
-	  	<%= image_tag @tin.image.url(:medium) %>
-	  	<h3><%= @tin.description %></h3>
-	  </div>
+		<p id="notice"><%= notice %></p>
 
-		<div class="panel-footer">
-	  	<%if @tin.user == current_user %>
-				<%= link_to 'Edit', edit_tin_path(@tin) %> |
-			<% end %>
-			<%= link_to 'Back', tins_path %>
-		</div>
+		  <div class="panel-body center">
+		  	<%= image_tag @tin.image.url(:medium) %>
+		  	<h3><%= @tin.description %></h3>
+		  	<p>
+		  		<strong><%= @tin.user.email unless @tin.user.nil? %> </strong>
+		  	</p>
+		  </div>
 
+			<div class="panel-footer">
+		  	<%if @tin.user == current_user %>
+          <%= link_to edit_tin_path(@tin) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+            Edit
+          <% end %>
+          |
+          <%= link_to @tin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          	<span class="glyphicon glyphicon-trash"></span>
+          	Delete
+          <% end %>
+
+				<% end %>
+
+			</div>
+
+	</div>
 </div>

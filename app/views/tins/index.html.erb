@@ -1,14 +1,23 @@
+<%= render 'pages/home' unless user_signed_in? %>
+
 <div id = "tins" class="transitions-enabled">
   <% @tins.each do |tin| %>
     <div class="box panel panel-default">
-      <%= image_tag tin.image.url(:thumb) %>
+      <%= link_to image_tag(tin.image.url(:thumb)), tin %>
       <div class="panel-body">
-        <%= tin.description %>
-        <%= tin.user.email unless tin.user.nil? %>
-        <%= link_to 'Show', tin %>
+        <%= tin.description %> <br>
+        <strong><%= tin.user.email unless tin.user.nil? %> </strong>
         <% if tin.user == current_user %>
-          <td><%= link_to 'Edit', edit_tin_path(tin) %>
-          <td><%= link_to 'Destroy', tin, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <div class="actions">
+            <%= link_to edit_tin_path(tin) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            <%= link_to tin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
